@@ -1,0 +1,21 @@
+version: '3'
+services:
+  vuesplash_web:
+    build: .
+    volumes:
+      - ./web:/var/www/html/vuesplash
+    ports:
+      - 8081:8081
+      - 3000:3000
+  db:
+    image: mysql:8.0.26
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: vuesplash
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
