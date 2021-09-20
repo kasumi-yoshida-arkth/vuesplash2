@@ -11,7 +11,17 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+// mix.js('resources/js/app.js', 'public/js')
+//     .postCss('resources/css/app.css', 'public/css', [
+//         //
+//     ]);
+
+// browserSyncはJSやPHPファイルが変更された時に自動的にブラウザがリロードされる
+mix.browserSync({
+    proxy: '0.0.0.0:8081', // アプリの起動アドレス
+    open: false // ブラウザを自動で開かない
+})
+//  JSとVueコンポーネントをコンパイルする
+  .js('resources/js/app.js', 'public/js')
+//  コンパイルしたファイルのバージョニングが有効になる
+  .version()
