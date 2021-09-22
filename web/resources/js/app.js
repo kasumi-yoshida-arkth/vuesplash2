@@ -1,10 +1,13 @@
 // require('./bootstrap');
 
-import Vue from 'vue';
+// require('alpinejs');
+
+import Vue from 'vue'
+
 // ルーティングの定義をインポートする
-import router from './router';
+import router from './router'
 // ルートコンポーネントをインポートする
-import App from './App.vue';
+import App from './App.vue'
 
 new Vue({
   el: '#app',

@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
-// APIのURL以外のリクエストに対してはindexテンプレートを返す
-// 例えば/signupというURLへのアクセスでも以下の場合はindexのテンプレートが返却される。
-// 画面遷移はフロントエンドのVueRouterが制御する
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::get('/{any?}', fn() => view('index'))->where('any', '.+');

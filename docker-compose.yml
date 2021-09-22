@@ -10,9 +10,9 @@ services:
   db:
     image: mysql:8.0.26
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: P@ssWord
       MYSQL_DATABASE: vuesplash
-      MYSQL_USER: root
+      MYSQL_USER: vue
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
